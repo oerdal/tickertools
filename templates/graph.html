@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ sym }}{% endblock %}
+{% block content %}
+<div class='container' id='scatter'>
+    <script>
+        var graphs = {{ plot | safe }};
+        var layout = {
+            title: '{{ sym }} Prices',
+            xaxis: {text: 'Date'},
+            yaxis: {text: 'Price per Share ($)'},
+            showlegend: true,
+	        legend: {"orientation": "h"}
+        }
+        Plotly.plot('scatter',graphs,layout,{displayModeBar: false});
+    </script>
+</div>
+{% endblock %}

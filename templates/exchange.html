@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ exch }} Tickers{% endblock %}
+{% block content %}
+<h2 class='display-4 text-center'>{{ exch }} Ticker Symbols</h2>
+<div class='list-group container w-25 my-4'>
+    {% for sym in syms %}
+    <a href={{ sym }} class='list-group-item list-group-item-action d-flex justify-content-between align-items-center'>
+        {{ sym }}
+        <span class="badge">></span>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
